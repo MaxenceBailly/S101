@@ -1,0 +1,12 @@
+git add .
+git commit -m "description de la modification"
+git push origin master
+
+git checkout -b ma-nouvelle-branche
+git add .
+git commit -m "Description des modifications"
+git push origin ma-nouvelle-branche
+
+git add .
+git commit -m "Description des modifications"
+git push origin ma-branche

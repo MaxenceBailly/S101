@@ -1,0 +1,9 @@
+*
+!*.cpp
+!*.hpp
+!*.h
+!*.a
+!*.txt
+!.gitignore
+!bin/
+!obj/
