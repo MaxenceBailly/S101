@@ -10,5 +10,6 @@ void afficheSac(const vector<int>&, const vector<int>&, const vector<string>&, c
 int getOccurence(const vector<int>&, int);
 int sommeVecteur(const vector<int>&);
 string getTresor(int, const vector<string>&);
+int avanceJoueur(int, int, vector<int>&, vector<int>&);
 
 #endif // MESFONCTIONS_H_INCLUDED

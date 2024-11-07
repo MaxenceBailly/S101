@@ -6,12 +6,8 @@ using namespace std;
 const vector<string> ARTEFACT ={"Vide","Livre","Bourse","Joyau","Sceptre","Collier","Graal"};
 const int NBARTEFACT = ARTEFACT.size();
 const int VIDE = 0;
-const vector<int> VALEUR  ={0,1,2,3,5,8,10};
+const vector<int> VALEUR  = {0,1,2,3,5,8,10};
 const vector<int> QUANTITE = {0,6,4,3,2,1,1};
-
-void affiche(const vector<int> &sentier,const vector<int> &sac1,const vector<int> &sac2,int pos1, int pos2, int tour);
-
-void joueurN(vector<int> &sentier,const vector<int> &valeur,const vector<int> &j1,vector<int> &j2,int pos1, int &pos2);
 
 int main() {
     vector<int> sentier;
@@ -22,8 +18,25 @@ int main() {
     vector<int> sac1(NBARTEFACT,0);
     vector<int> sac2(NBARTEFACT,0);
 
-    afficheSentier(sentier, ARTEFACT);
+    bool positionTour = true;
+    int avance;
 
+    while(pos1>0&&pos2>0){
+        affiche(sentier, ARTEFACT, VALEUR, sentier.size()-(positionTour?pos1:pos2), sac1, sac2);
+        cout << "Le joueur " << (positionTour?"1":"2") << " avance de combien de case ? ";
+        cin >> avance;
+
+        while((positionTour?pos1:pos2)-avance==(positionTour?pos2:pos1)||(positionTour?pos1:pos2)-avance<0){
+            cout << "La manoeuvre est impossible veuillez reessayez: " << endl;
+            affiche(sentier, ARTEFACT, VALEUR, (positionTour?pos1:pos2), sac1, sac2);
+            cout << "Le joueur " << (positionTour?"1":"2") << " avance de combien de case ? ";
+            cin >> avance;
+        }
+
+        (positionTour?pos1:pos2) = avanceJoueur((positionTour?pos1:pos2), avance, sentier, (positionTour?sac1:sac2));
+        cout << pos1 << pos2 << endl;
+        positionTour = !positionTour;
+    }
 
     return 0;
 }

@@ -20,7 +20,7 @@ void afficheSentier(const vector<int>&sentier, const vector<string>&tresors, int
 
 void afficheSac(const vector<int>&sac1, const vector<int>&sac2, const vector<string>&tresor, const vector<int>&valeurs) {
     cout << "\tSac" << "\t_1_" << "\t_2_" << endl;
-    for(int cpt=0;cpt<tresor.size();cpt++){
+    for(int cpt=1;cpt<tresor.size();cpt++){
         cout << tresor[cpt] << "\t\t " << getOccurence(sac1, valeurs[cpt]) << "\t " << getOccurence(sac2, valeurs[cpt]) << endl;
     }
     cout << endl;
@@ -44,4 +44,11 @@ int sommeVecteur(const vector<int>&vecteur) {
         somme += vecteur[cpt];
     }
     return somme;
+}
+
+int avanceJoueur(int position, int nb, vector<int>&sentier, vector<int>&sac) {
+    position-=nb;
+    sac.push_back(sentier[position]);
+    sentier[position] = 0;
+    return position;
 }
