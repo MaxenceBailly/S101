@@ -8,6 +8,8 @@ const int NBARTEFACT = ARTEFACT.size();
 const int VIDE = 0;
 const vector<int> VALEUR  ={0,1,2,3,5,8,10};
 const vector<int> QUANTITE = {0,6,4,3,2,1,1};
+int pointsJoueur1 = 0;
+int pointsJoueur2 = 0;
 
 int main() {
     vector<int> sentier1 = {6,1,3,1,2,4,1,3,5,1,2,1,2,3,1,4,2};
@@ -33,6 +35,13 @@ int main() {
     cout << "-----Je teste la fonction somme-----"<<endl;
     cout << sommeVecteur(sac1) << endl;
     cout << sommeVecteur(sac2) << endl;
+
+	
+    cout << "-----Je teste le compte des points-----"<<endl;
+    comptePoint(sac1, sac2, VALEUR, pointsJoueur1, pointsJoueur2);
+
+    cout << "Points Joueur 1: " << pointsJoueur1 << endl;
+    cout << "Points Joueur 2: " << pointsJoueur2 << endl;
 
     return 0;
 }
