@@ -45,3 +45,20 @@ int sommeVecteur(const vector<int>&vecteur) {
     }
     return somme;
 }
+
+void comptePoint(const vector<int>& sac1, const vector<int>& sac2, const vector<int>& valeurs, int& pointsJoueur1, int& pointsJoueur2) {
+    pointsJoueur1 = 0;
+    pointsJoueur2 = 0;
+
+    for (int i = 0; i < valeurs.size(); i++) {
+        int quantiteJoueur1 = getOccurence(sac1, valeurs[i]);
+        int quantiteJoueur2 =  getOccurence(sac2, valeurs[i]);
+
+        // Si un joueur a plus de trésors, il gagne les points équivalents à la valeur du trésor
+        if (quantiteJoueur1 > quantiteJoueur2) {
+            pointsJoueur1 += valeurs[i];
+        } else if (quantiteJoueur2 > quantiteJoueur1) {
+            pointsJoueur2 += valeurs[i];
+        }
+    }
+}
