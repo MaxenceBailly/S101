@@ -26,10 +26,13 @@ void afficheSac(const vector<int>&sac1, const vector<int>&sac2, const vector<str
     cout << endl;
 }
 
+///Fonction getTresor qui renvoie le nom du trésor en fonction de sa valeur
 string getTresor(int nb, const vector<string>&tresors) {
     return tresors[nb];
 }
 
+
+///Fonction getccurence qui compte le nombre d'occurence d'un entier dans un vecteur
 int getOccurence(const vector<int>&vecteur, int val) {
     int occu=0;
     for(int i=0;i<vecteur.size();i++){
@@ -38,6 +41,8 @@ int getOccurence(const vector<int>&vecteur, int val) {
     return occu;
 }
 
+
+///Fonction sommeVecteur fait la somme de tous les entiers d'un vectue
 int sommeVecteur(const vector<int>&vecteur) {
     int somme;
     for(int cpt=0;cpt<vecteur.size();cpt++){
@@ -46,6 +51,8 @@ int sommeVecteur(const vector<int>&vecteur) {
     return somme;
 }
 
+
+///Fonction avanceJoueur qui permet de faire avancer les joueurs
 int avanceJoueur(int position, int nb, vector<int>&sentier, vector<int>&sac) {
     position-=nb;
     sac.push_back(sentier[position]);
@@ -53,6 +60,8 @@ int avanceJoueur(int position, int nb, vector<int>&sentier, vector<int>&sac) {
     return position;
 }
 
+
+///Procédure comptePoint qui est utilisé à la fin de la partie pour
 void comptePoint(const vector<int>& sac1, const vector<int>& sac2, const vector<int>& valeurs, int& pointsJoueur1, int& pointsJoueur2) {
     pointsJoueur1 = 0;
     pointsJoueur2 = 0;
@@ -61,7 +70,7 @@ void comptePoint(const vector<int>& sac1, const vector<int>& sac2, const vector<
         int quantiteJoueur1 = getOccurence(sac1, valeurs[i]);
         int quantiteJoueur2 =  getOccurence(sac2, valeurs[i]);
 
-        // Si un joueur a plus de tr�sors, il gagne les points �quivalents � la valeur du tr�sor
+        ///Si un joueur a plus de trésors, il gagne les points équivalents à la valeur du trésor
         if (quantiteJoueur1 > quantiteJoueur2) {
             pointsJoueur1 += valeurs[i];
         } else if (quantiteJoueur2 > quantiteJoueur1) {
